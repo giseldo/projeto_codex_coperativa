@@ -24,9 +24,6 @@ export function SiteHeader({ profile }: { profile: Profile | null }) {
           <Link href="/" className="nav-link">
             Início
           </Link>
-          <Link href="/checkout" className="nav-link">
-            Cesta
-          </Link>
           {profile?.role === "admin" ? (
             <Link href="/admin" className="nav-link">
               Painel admin
