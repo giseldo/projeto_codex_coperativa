@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #f6efe1;
   --bg-strong: #efe2c4;
   --card: rgba(255, 252, 245, 0.88);
@@ -601,4 +601,66 @@ td {
     box-shadow: none;
     border-color: #ddd;
   }
+}
+
+.header-actions--account {
+  justify-content: flex-end;
+}
+
+.account-panel {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 10px 8px 14px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(247,242,230,0.88));
+  border: 1px solid rgba(62, 93, 66, 0.16);
+  box-shadow: 0 10px 20px rgba(43, 57, 39, 0.08);
+}
+
+.account-panel__identity {
+  display: grid;
+  gap: 2px;
+}
+
+.account-panel__label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--warm);
+}
+
+.account-panel__name {
+  font-size: 0.98rem;
+  line-height: 1.1;
+}
+
+.account-panel__role {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.account-panel__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.account-panel__link {
+  border: 0;
+  background: rgba(58, 125, 68, 0.1);
+  color: var(--accent-strong);
+  padding: 9px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.account-panel__link:hover {
+  background: rgba(58, 125, 68, 0.16);
+}
+
+.profile-form-card,
+.profile-side-card {
+  align-self: start;
 }

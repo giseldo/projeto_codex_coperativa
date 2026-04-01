@@ -33,11 +33,20 @@ export function AuthButtons({ profile }: { profile: Profile | null }) {
   }
 
   return (
-    <>
-      <span className="pill-link">{profile.full_name ?? "Conta ativa"}</span>
-      <button type="button" className="pill-link" onClick={handleLogout}>
-        Sair
-      </button>
-    </>
+    <div className="account-panel">
+      <div className="account-panel__identity">
+        <span className="account-panel__label">Conta conectada</span>
+        <strong className="account-panel__name">{profile.full_name ?? "Usuário"}</strong>
+        <span className="account-panel__role">{profile.role === "admin" ? "Administrador" : "Cliente"}</span>
+      </div>
+      <div className="account-panel__actions">
+        <Link href="/perfil" className="account-panel__link">
+          Editar dados
+        </Link>
+        <button type="button" className="account-panel__link" onClick={handleLogout}>
+          Sair
+        </button>
+      </div>
+    </div>
   );
 }

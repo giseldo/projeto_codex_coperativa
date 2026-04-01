@@ -38,7 +38,7 @@ export function SiteHeader({ profile }: { profile: Profile | null }) {
           ) : null}
         </nav>
 
-        <div className="header-actions">
+        <div className="header-actions header-actions--account">
           <CartIndicator />
           <AuthButtons profile={profile} />
         </div>

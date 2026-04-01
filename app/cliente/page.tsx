@@ -16,6 +16,12 @@ export default async function CustomerPage() {
         <p>Consulte compras anteriores, acompanhe pagamentos e abra o resumo imprimível de cada pedido.</p>
       </section>
 
+      <div className="button-row">
+        <Link href="/perfil" className="pill-link">
+          Editar meus dados
+        </Link>
+      </div>
+
       <section className="card">
         <div className="section-title">
           <h2>Meus pedidos</h2>
