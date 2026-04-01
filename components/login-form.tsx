@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useTransition } from "react";
@@ -39,7 +39,7 @@ export function LoginForm() {
           return;
         }
 
-        setMessage("Conta criada. Se a confirmacao por e-mail estiver ativa, valide seu acesso antes de entrar.");
+        setMessage("Conta criada. Se a confirmação por e-mail estiver ativa, valide seu acesso antes de entrar.");
         setCurrentMode("login");
         router.refresh();
         return;
@@ -63,7 +63,7 @@ export function LoginForm() {
   return (
     <div className="two-columns">
       <section className="hero-card">
-        <div className="eyebrow">Acesso a plataforma</div>
+        <div className="eyebrow">Acesso à plataforma</div>
         <h1>Compre direto da agricultura familiar.</h1>
         <p>
           Acesse sua conta para montar pedidos, acompanhar compras anteriores e enviar comprovantes de pagamento com poucos cliques.
@@ -107,7 +107,7 @@ export function LoginForm() {
             className="button-secondary"
             onClick={() => setCurrentMode(currentMode === "signup" ? "login" : "signup")}
           >
-            {currentMode === "signup" ? "Ja tenho conta" : "Criar nova conta"}
+            {currentMode === "signup" ? "Já tenho conta" : "Criar nova conta"}
           </button>
         </div>
       </form>

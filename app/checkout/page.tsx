@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import { CartSummary } from "@/components/cart-summary";
 import { CheckoutForm } from "@/components/checkout-form";
@@ -20,7 +20,7 @@ export default async function CheckoutPage() {
           <div className="section-title">
             <div>
               <h2>Entrar para finalizar</h2>
-              <p className="muted">O login e necessario para associar o pedido ao historico do comprador.</p>
+              <p className="muted">O login é necessário para associar o pedido ao histórico do comprador.</p>
             </div>
           </div>
           <Link href="/login" className="pill-link pill-link--solid">

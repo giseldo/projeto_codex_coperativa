@@ -1,4 +1,4 @@
-import { WeeklyProductSummary } from "@/lib/types";
+﻿import { WeeklyProductSummary } from "@/lib/types";
 import { formatCurrency } from "@/lib/utils";
 
 export function WeeklySummary({
@@ -12,22 +12,22 @@ export function WeeklySummary({
     <div className="grid">
       <div className="stats">
         <article className="card stat-card">
-          <span className="eyebrow">Arrecadacao</span>
+          <span className="eyebrow">Arrecadação</span>
           <strong>{formatCurrency(totalRevenue)}</strong>
           <span className="muted">Total da janela selecionada</span>
         </article>
         <article className="card stat-card">
           <span className="eyebrow">Itens consolidados</span>
           <strong>{summary.length}</strong>
-          <span className="muted">Produtos diferentes no relatorio</span>
+          <span className="muted">Produtos diferentes no relatório</span>
         </article>
       </div>
 
       <section className="card">
         <div className="section-title">
           <div>
-            <h3>Somatorio por produto</h3>
-            <p className="muted">Use este resumo para organizar separacao, entrega e repasse.</p>
+            <h3>Somatório por produto</h3>
+            <p className="muted">Use este resumo para organizar separação, entrega e repasse.</p>
           </div>
         </div>
         <div className="table-wrap">

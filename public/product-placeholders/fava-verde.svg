@@ -1,0 +1,19 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title>Fava verde</title>
+  <desc>Ilustracao do produto Fava verde na categoria Graos.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F1E4B7" />
+      <stop offset="100%" stop-color="#C3A64A" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" rx="36" fill="url(#bg)" />
+  <circle cx="635" cy="120" r="120" fill="rgba(255,255,255,0.18)" />
+  <circle cx="135" cy="500" r="150" fill="rgba(255,255,255,0.14)" />
+  <rect x="52" y="52" width="696" height="496" rx="30" fill="rgba(255,255,255,0.28)" stroke="rgba(255,255,255,0.45)" />
+  <text x="70" y="120" font-family="Georgia, serif" font-size="34" fill="#6F5814" opacity="0.84">Campo no Campus</text>
+  <text x="70" y="220" font-family="Georgia, serif" font-size="108" font-weight="700" fill="#6F5814">FV</text>
+  <text x="70" y="330" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#6F5814">Fava verde</text>
+  <text x="70" y="398" font-family="Georgia, serif" font-size="28" fill="#6F5814" opacity="0.92">Graos</text>
+  <text x="70" y="474" font-family="Georgia, serif" font-size="24" fill="#6F5814" opacity="0.8">Imagem ilustrativa gerada para o catalogo</text>
+</svg>

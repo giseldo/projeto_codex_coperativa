@@ -1,7 +1,30 @@
 import { cache } from "react";
 
 import { createClient } from "@/lib/supabase/server";
-import { Order, Product, WeeklyProductSummary } from "@/lib/types";
+import { Product, Order, WeeklyProductSummary } from "@/lib/types";
+import { slugifyFilename } from "@/lib/utils";
+
+function buildPlaceholderUrl(product: Product) {
+  const nameSlug = slugifyFilename(product.name || "produto");
+  return `/product-placeholders/${nameSlug}.svg`;
+}
+
+function withProductImageUrls(supabase: Awaited<ReturnType<typeof createClient>>, products: Product[]) {
+  return products.map((product) => {
+    if (!product.image_path) {
+      return {
+        ...product,
+        image_url: buildPlaceholderUrl(product)
+      };
+    }
+
+    const { data } = supabase.storage.from("product-images").getPublicUrl(product.image_path);
+    return {
+      ...product,
+      image_url: data.publicUrl || buildPlaceholderUrl(product)
+    };
+  });
+}
 
 export const getActiveProducts = cache(async (): Promise<Product[]> => {
   const supabase = await createClient();
@@ -9,10 +32,11 @@ export const getActiveProducts = cache(async (): Promise<Product[]> => {
     .from("products")
     .select("*")
     .eq("active", true)
-    .order("name");
+    .order("category", { ascending: true })
+    .order("name", { ascending: true });
 
   if (error) return [];
-  return (data ?? []) as Product[];
+  return withProductImageUrls(supabase, (data ?? []) as Product[]);
 });
 
 export async function getAdminProducts(): Promise<Product[]> {
@@ -20,10 +44,11 @@ export async function getAdminProducts(): Promise<Product[]> {
   const { data, error } = await supabase
     .from("products")
     .select("*")
-    .order("created_at", { ascending: false });
+    .order("category", { ascending: true })
+    .order("name", { ascending: true });
 
   if (error) return [];
-  return (data ?? []) as Product[];
+  return withProductImageUrls(supabase, (data ?? []) as Product[]);
 }
 
 export async function getOrderById(orderId: string): Promise<Order | null> {

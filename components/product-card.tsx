@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -12,16 +12,25 @@ export function ProductCard({ product }: { product: Product }) {
 
   function handleAdd() {
     addItem(product);
-    setFeedback("Adicionado a cesta");
+    setFeedback("Adicionado à cesta");
     window.setTimeout(() => setFeedback(""), 1400);
   }
 
   return (
     <article className="card product-card">
+      <div className="catalog-image-shell">
+        {product.image_url ? (
+          <img src={product.image_url} alt={product.name} className="catalog-image" />
+        ) : (
+          <div className="catalog-image catalog-image--placeholder">
+            <span>{product.category || "Sem foto"}</span>
+          </div>
+        )}
+      </div>
       <div>
-        <div className="eyebrow">Producao local</div>
+        <div className="eyebrow">{product.category || "Produção local"}</div>
         <h3>{product.name}</h3>
-        <p className="muted">{product.description || "Produto fresco da agricultura familiar de Vicosa/AL."}</p>
+        <p className="muted">{product.description || "Produto fresco da agricultura familiar de Viçosa/AL."}</p>
       </div>
       <div>
         <div className="price">{formatCurrency(product.price)}</div>

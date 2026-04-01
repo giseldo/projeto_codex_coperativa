@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
@@ -20,7 +20,7 @@ export function CheckoutForm({ profile }: { profile: Profile }) {
   async function onSubmit(formData: FormData) {
     setError("");
     if (!items.length) {
-      setError("Adicione produtos a cesta antes de finalizar.");
+      setError("Adicione produtos à cesta antes de finalizar.");
       return;
     }
 
@@ -34,7 +34,7 @@ export function CheckoutForm({ profile }: { profile: Profile }) {
     startTransition(async () => {
       const result = await createOrderAction(formData);
       if (!result.success || !result.orderId) {
-        setError(result.message ?? "Nao foi possivel concluir o pedido.");
+        setError(result.message ?? "Não foi possível concluir o pedido.");
         return;
       }
 
@@ -49,17 +49,17 @@ export function CheckoutForm({ profile }: { profile: Profile }) {
       <div className="section-title">
         <div>
           <h2>Finalizar pedido</h2>
-          <p className="muted">Revise os dados e envie o comprovante, se ja tiver efetuado o pagamento.</p>
+          <p className="muted">Revise os dados e envie o comprovante, se já tiver efetuado o pagamento.</p>
         </div>
         <div className="badge">Total {formatCurrency(total)}</div>
       </div>
 
       <div className="field">
-        <label htmlFor="notes">Observacoes</label>
+        <label htmlFor="notes">Observações</label>
         <textarea
           id="notes"
           name="notes"
-          placeholder="Ex.: substituir em caso de indisponibilidade, observacoes para entrega..."
+          placeholder="Ex.: substituir em caso de indisponibilidade, observações para entrega..."
           value={notes}
           onChange={(event) => setNotes(event.target.value)}
         />

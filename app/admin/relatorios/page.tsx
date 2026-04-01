@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import { ReportExportButton } from "@/components/report-export-button";
 import { WeeklySummary } from "@/components/weekly-summary";
@@ -44,13 +44,13 @@ export default async function AdminReportsPage({
       <section className="card">
         <div className="section-title">
           <div>
-            <h2>Relatorio semanal</h2>
-            <p className="muted">Consolide a producao pedida e exporte uma planilha CSV.</p>
+            <h2>Relatório semanal</h2>
+            <p className="muted">Consolide a produção pedida e exporte uma planilha CSV.</p>
           </div>
         </div>
         <form className="form-grid two">
           <div className="field">
-            <label htmlFor="start">Inicio</label>
+            <label htmlFor="start">Início</label>
             <input id="start" name="start" type="date" defaultValue={startDate} />
           </div>
           <div className="field">
@@ -59,7 +59,7 @@ export default async function AdminReportsPage({
           </div>
           <div className="button-row">
             <button className="button-secondary" type="submit">
-              Atualizar periodo
+              Atualizar período
             </button>
             <ReportExportButton startDate={startDate} endDate={endDate} />
           </div>
@@ -69,7 +69,7 @@ export default async function AdminReportsPage({
       {report.summary.length ? (
         <WeeklySummary summary={report.summary} totalRevenue={report.totalRevenue} />
       ) : (
-        <div className="card empty-state">Nenhum pedido encontrado no periodo informado.</div>
+        <div className="card empty-state">Nenhum pedido encontrado no período informado.</div>
       )}
     </div>
   );

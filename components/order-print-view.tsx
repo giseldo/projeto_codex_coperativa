@@ -1,4 +1,4 @@
-import { Order } from "@/lib/types";
+﻿import { Order } from "@/lib/types";
 import { formatCurrency, formatDate, getStatusLabel } from "@/lib/utils";
 
 export function OrderPrintView({ order }: { order: Order }) {
@@ -24,7 +24,7 @@ export function OrderPrintView({ order }: { order: Order }) {
               <tr>
                 <th>Produto</th>
                 <th>Quantidade</th>
-                <th>Preco unitario</th>
+                <th>Preço unitário</th>
                 <th>Total</th>
               </tr>
             </thead>
@@ -50,7 +50,7 @@ export function OrderPrintView({ order }: { order: Order }) {
           <h3>Total</h3>
           <div className="price">{formatCurrency(order.total_amount)}</div>
         </div>
-        {order.notes ? <p className="muted">Observacoes: {order.notes}</p> : null}
+        {order.notes ? <p className="muted">Observações: {order.notes}</p> : null}
       </section>
     </div>
   );

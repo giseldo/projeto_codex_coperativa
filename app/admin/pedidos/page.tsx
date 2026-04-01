@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import { OrderStatusForm } from "@/components/order-status-form";
 import { requireRole } from "@/lib/auth";
@@ -32,7 +32,7 @@ export default async function AdminOrdersPage() {
         <div className="section-title">
           <div>
             <h2>Pedidos recebidos</h2>
-            <p className="muted">Valide pagamento, abra comprovantes e imprima resumos individuais.</p>
+            <p className="muted">Valide pagamentos, abra comprovantes e imprima resumos individuais.</p>
           </div>
         </div>
         <div className="grid">

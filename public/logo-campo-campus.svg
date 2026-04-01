@@ -1,0 +1,42 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title>Grupo de Consumo Campo no Campus</title>
+  <desc>Selo ilustrado inspirado na marca do Grupo de Consumo Campo no Campus.</desc>
+  <defs>
+    <linearGradient id="outer" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f9a52"/>
+      <stop offset="100%" stop-color="#0f5e36"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7d08a"/>
+      <stop offset="100%" stop-color="#e79144"/>
+    </linearGradient>
+  </defs>
+  <circle cx="320" cy="320" r="300" fill="url(#outer)"/>
+  <circle cx="320" cy="320" r="274" fill="#f8f3e9"/>
+  <circle cx="320" cy="320" r="246" fill="#fffdf8" stroke="#325a39" stroke-width="5"/>
+
+  <path d="M129 179c60-46 129-69 191-69 61 0 129 23 191 69" fill="none" stroke="#244d2e" stroke-width="14" stroke-linecap="round"/>
+  <path d="M192 213h26v52h-26zM245 187h26v78h-26zM298 165h44v100h-44zM369 198h26v67h-26zM422 223h26v42h-26z" fill="#426440"/>
+  <path d="M177 313c35-35 82-57 143-63 61 6 108 28 143 63-48-8-95-11-143-11-47 0-95 3-143 11Z" fill="#dbe8d4" stroke="#3a5c3d" stroke-width="5"/>
+  <path d="M177 313c43 18 91 28 143 30 52-2 100-12 143-30" fill="none" stroke="#3a5c3d" stroke-width="5"/>
+  <path d="M212 309c14-19 31-36 51-49M259 330c11-24 24-47 40-69M317 341c0-32 2-63 8-94M377 329c11-26 25-49 41-69M428 309c11-17 24-32 40-46" fill="none" stroke="#577759" stroke-width="5" stroke-linecap="round"/>
+
+  <path d="M208 350c42 2 71 18 112 43 41-25 70-41 112-43 4 56-17 102-112 140-95-38-116-84-112-140Z" fill="#f7fbf6" stroke="#3f5d42" stroke-width="6"/>
+  <path d="M209 350c34 0 58 12 92 30l19 11 19-11c34-18 58-30 92-30-21 31-61 59-111 84-50-25-90-53-111-84Z" fill="#f7cc90"/>
+  <path d="M262 405c17-14 33-19 58-19 25 0 41 5 58 19-10 20-31 39-58 56-27-17-48-36-58-56Z" fill="#ec8f43"/>
+  <path d="M269 421c11-10 24-14 51-14 27 0 40 4 51 14-10 13-28 27-51 40-23-13-41-27-51-40Z" fill="#226847"/>
+  <path d="M320 376c18-22 53-22 53 10 0 31-31 47-53 69-22-22-53-38-53-69 0-32 35-32 53-10Z" fill="#ef8a42" stroke="#af5d1e" stroke-width="5"/>
+  <path d="M246 461c26 16 49 24 74 24 25 0 48-8 74-24" fill="none" stroke="#315338" stroke-width="6" stroke-linecap="round"/>
+
+  <path d="M146 302c-18 11-30 28-36 50 8 26 23 43 45 52-14-30-17-64-9-102Z" fill="#f3f0e6" stroke="#49624e" stroke-width="5"/>
+  <path d="M494 302c18 11 30 28 36 50-8 26-23 43-45 52 14-30 17-64 9-102Z" fill="#f3f0e6" stroke="#49624e" stroke-width="5"/>
+  <path d="M139 374c-16-7-28-18-35-34M151 348c-13-4-24-12-31-23M501 374c16-7 28-18 35-34M489 348c13-4 24-12 31-23" fill="none" stroke="#4b664f" stroke-width="5" stroke-linecap="round"/>
+
+  <g transform="translate(83 437)">
+    <path d="M0 53c0-32 26-58 58-58h358c32 0 58 26 58 58v12c0 32-26 58-58 58H58C26 123 0 97 0 65Z" fill="#f8f4ea" stroke="#3e5a40" stroke-width="7"/>
+    <text x="237" y="74" text-anchor="middle" font-family="Georgia, serif" font-size="58" font-weight="700" fill="#315039">CAMPO NO CAMPUS</text>
+  </g>
+
+  <text x="320" y="84" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-weight="700" letter-spacing="4" fill="#294730">GRUPO DE CONSUMO</text>
+  <text x="320" y="600" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="700" letter-spacing="2" fill="#294730">ECONOMIA SOLIDARIA | IFAL CAMPUS VICOSA/AL</text>
+</svg>

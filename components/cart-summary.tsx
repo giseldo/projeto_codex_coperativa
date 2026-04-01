@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 
@@ -11,7 +11,7 @@ export function CartSummary() {
   if (!items.length) {
     return (
       <div className="card empty-state">
-        <p>Sua cesta ainda esta vazia.</p>
+        <p>Sua cesta ainda está vazia.</p>
         <Link href="/" className="pill-link pill-link--solid">
           Explorar produtos
         </Link>
@@ -24,7 +24,7 @@ export function CartSummary() {
       <div className="section-title">
         <div>
           <h2>Cesta de compras</h2>
-          <p className="muted">Ajuste quantidades antes de concluir o pedido.</p>
+          <p className="muted">Ajuste as quantidades antes de concluir o pedido.</p>
         </div>
         <button type="button" className="button-secondary no-print" onClick={clearCart}>
           Limpar cesta
@@ -36,10 +36,10 @@ export function CartSummary() {
           <thead>
             <tr>
               <th>Produto</th>
-              <th>Preco</th>
+              <th>Preço</th>
               <th>Quantidade</th>
               <th>Total</th>
-              <th className="no-print">Acao</th>
+              <th className="no-print">Ação</th>
             </tr>
           </thead>
           <tbody>

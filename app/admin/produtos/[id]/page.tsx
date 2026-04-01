@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { AdminProductForm } from "@/components/admin-product-form";
@@ -23,7 +23,9 @@ export default async function EditProductPage({
           Voltar
         </Link>
       </div>
-      <AdminProductForm product={product} />
+      <div className="admin-products-layout admin-products-layout--single">
+        <AdminProductForm product={product} />
+      </div>
     </div>
   );
 }

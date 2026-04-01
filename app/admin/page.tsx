@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import { requireRole } from "@/lib/auth";
 import { getAdminOrders, getAdminProducts } from "@/lib/data";
@@ -14,8 +14,8 @@ export default async function AdminPage() {
     <div className="grid">
       <section className="hero-card">
         <div className="eyebrow">Painel administrativo</div>
-        <h1>Gestao completa da cesta semanal.</h1>
-        <p>Controle produtos, pagamentos, comprovantes e relatorios em uma unica operacao.</p>
+        <h1>Gestão completa da cesta semanal.</h1>
+        <p>Controle produtos, pagamentos, comprovantes e relatórios em uma única operação.</p>
       </section>
 
       <section className="stats">
@@ -27,17 +27,17 @@ export default async function AdminPage() {
         <article className="card stat-card">
           <span className="eyebrow">Pedidos pendentes</span>
           <strong>{pendingOrders}</strong>
-          <span className="muted">Aguardando validacao de pagamento</span>
+          <span className="muted">Aguardando validação de pagamento</span>
         </article>
         <article className="card stat-card">
           <span className="eyebrow">Pedidos pagos</span>
           <strong>{paidOrders}</strong>
-          <span className="muted">Ja confirmados pela administracao</span>
+          <span className="muted">Já confirmados pela administração</span>
         </article>
         <article className="card stat-card">
           <span className="eyebrow">Receita total</span>
           <strong>{formatCurrency(orders.reduce((sum, order) => sum + order.total_amount, 0))}</strong>
-          <span className="muted">Somatorio historico</span>
+          <span className="muted">Somatório histórico</span>
         </article>
       </section>
 
@@ -49,7 +49,7 @@ export default async function AdminPage() {
           Visualizar pedidos
         </Link>
         <Link href="/admin/relatorios" className="pill-link">
-          Relatorios semanais
+          Relatórios semanais
         </Link>
       </div>
     </div>

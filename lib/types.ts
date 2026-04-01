@@ -4,8 +4,11 @@ export type Product = {
   id: string;
   name: string;
   description: string | null;
+  category?: string | null;
   price: number;
   unit: string;
+  image_path?: string | null;
+  image_url?: string | null;
   active: boolean;
   created_at: string;
 };

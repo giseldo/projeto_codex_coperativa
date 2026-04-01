@@ -17,26 +17,58 @@ function parseItems(rawItems: string) {
   return JSON.parse(rawItems) as CartItem[];
 }
 
+async function uploadProductImage(supabase: Awaited<ReturnType<typeof createClient>>, productId: string, imageFile: File) {
+  const extension = imageFile.name.split(".").pop() || "bin";
+  const baseName = imageFile.name.replace(/\.[^.]+$/, "") || productId;
+  const path = `products/${productId}-${slugifyFilename(baseName)}.${extension}`;
+  const arrayBuffer = await imageFile.arrayBuffer();
+
+  const { error } = await supabase.storage.from("product-images").upload(path, arrayBuffer, {
+    contentType: imageFile.type,
+    upsert: true
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return path;
+}
+
 export async function saveProductAction(_: ActionState, formData: FormData): Promise<ActionState> {
   await requireRole("admin");
   const supabase = await createClient();
   const id = String(formData.get("id") || "");
+  const imageFile = formData.get("productImage");
   const payload = {
     name: String(formData.get("name") || ""),
     description: String(formData.get("description") || "") || null,
+    category: String(formData.get("category") || "") || null,
     price: Number(formData.get("price") || 0),
     unit: String(formData.get("unit") || ""),
     active: String(formData.get("active") || "true") === "true"
   };
 
   const query = id
-    ? supabase.from("products").update(payload).eq("id", id)
-    : supabase.from("products").insert(payload);
+    ? supabase.from("products").update(payload).eq("id", id).select("id, image_path").single()
+    : supabase.from("products").insert(payload).select("id, image_path").single();
 
-  const { error } = await query;
+  const { data, error } = await query;
 
-  if (error) {
-    return { success: false, message: error.message };
+  if (error || !data) {
+    return { success: false, message: error?.message || "Nao foi possivel salvar o produto." };
+  }
+
+  try {
+    if (imageFile instanceof File && imageFile.size > 0) {
+      const imagePath = await uploadProductImage(supabase, data.id, imageFile);
+      await supabase.from("products").update({ image_path: imagePath }).eq("id", data.id);
+    }
+  } catch (imageError) {
+    return {
+      success: false,
+      message: imageError instanceof Error ? imageError.message : "Falha ao enviar a imagem do produto."
+    };
   }
 
   revalidatePath("/");
@@ -51,6 +83,10 @@ export async function saveProductAction(_: ActionState, formData: FormData): Pro
 export async function deleteProductAction(id: string) {
   await requireRole("admin");
   const supabase = await createClient();
+  const { data } = await supabase.from("products").select("image_path").eq("id", id).single();
+  if (data?.image_path) {
+    await supabase.storage.from("product-images").remove([data.image_path]);
+  }
   await supabase.from("products").delete().eq("id", id);
   revalidatePath("/");
   revalidatePath("/admin/produtos");

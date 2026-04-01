@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import { requireAuth } from "@/lib/auth";
 import { getCustomerOrders } from "@/lib/data";
@@ -11,9 +11,9 @@ export default async function CustomerPage() {
   return (
     <div className="grid">
       <section className="hero-card">
-        <div className="eyebrow">Minha area</div>
-        <h1>Historico de pedidos</h1>
-        <p>Consulte compras anteriores, acompanhe pagamentos e abra o resumo imprimivel de cada pedido.</p>
+        <div className="eyebrow">Minha área</div>
+        <h1>Histórico de pedidos</h1>
+        <p>Consulte compras anteriores, acompanhe pagamentos e abra o resumo imprimível de cada pedido.</p>
       </section>
 
       <section className="card">
@@ -55,7 +55,7 @@ export default async function CustomerPage() {
             </table>
           </div>
         ) : (
-          <div className="empty-state">Voce ainda nao realizou pedidos.</div>
+          <div className="empty-state">Você ainda não realizou pedidos.</div>
         )}
       </section>
     </div>
