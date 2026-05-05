@@ -173,6 +173,39 @@ export async function updateOrderStatusAction(orderId: string, status: OrderStat
   revalidatePath(`/pedido/${orderId}`);
 }
 
+export async function deleteOrderAction(orderId: string) {
+  const user = await requireAuth();
+  const supabase = await createClient();
+
+  const { data: order, error: fetchError } = await supabase
+    .from("orders")
+    .select("id, status, payment_proof_path, user_id")
+    .eq("id", orderId)
+    .single();
+
+  if (fetchError || !order) {
+    return { success: false, message: "Pedido não encontrado." };
+  }
+  if (order.user_id !== user.id) {
+    return { success: false, message: "Sem permissão para excluir este pedido." };
+  }
+  if (order.status !== "pending") {
+    return { success: false, message: "Apenas pedidos pendentes podem ser excluídos." };
+  }
+
+  if (order.payment_proof_path) {
+    await supabase.storage.from("payment-proofs").remove([order.payment_proof_path]);
+  }
+
+  await supabase.from("orders").delete().eq("id", orderId);
+
+  revalidatePath("/cliente");
+  revalidatePath("/admin");
+  revalidatePath("/admin/pedidos");
+
+  return { success: true, message: "Pedido excluído com sucesso." };
+}
+
 export async function exportWeeklyReportAction(startDate: string, endDate: string) {
   await requireRole("admin");
   const report = await getWeeklyReport(startDate, endDate);

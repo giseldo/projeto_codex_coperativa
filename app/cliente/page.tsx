@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 
+import { DeleteOrderButton } from "@/components/delete-order-button";
 import { requireAuth } from "@/lib/auth";
 import { getCustomerOrders } from "@/lib/data";
 import { formatCurrency, formatDate, getStatusLabel } from "@/lib/utils";
@@ -38,7 +39,7 @@ export default async function CustomerPage() {
                   <th>Data</th>
                   <th>Status</th>
                   <th>Total</th>
-                  <th>Resumo</th>
+                  <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
@@ -51,9 +52,14 @@ export default async function CustomerPage() {
                     </td>
                     <td>{formatCurrency(order.total_amount)}</td>
                     <td>
-                      <Link href={`/pedido/${order.id}`} className="pill-link">
-                        Abrir
-                      </Link>
+                      <div className="inline-actions">
+                        <Link href={`/pedido/${order.id}`} className="pill-link">
+                          Abrir
+                        </Link>
+                        {order.status === "pending" && (
+                          <DeleteOrderButton orderId={order.id} />
+                        )}
+                      </div>
                     </td>
                   </tr>
                 ))}
