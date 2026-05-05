@@ -26,6 +26,9 @@ export default async function AdminOrdersPage() {
         <Link href="/admin" className="pill-link">
           Voltar ao painel
         </Link>
+        <a href="/api/admin/pedidos/export" className="pill-link pill-link--solid">
+          Exportar Excel
+        </a>
       </div>
 
       <section className="card">
